@@ -8,11 +8,11 @@ var Firebase = require('firebase');
  */
 module.exports = function(config) {
 
-    if (!config || !config.firebase_uri) {
-        throw new Error('firebase_uri is required.');
+    if (!config || !config.rootRef) {
+        throw new Error('rootRef is required.');
     }
 
-    var rootRef = new Firebase(config.firebase_uri),
+    var rootRef = config.rootRef,
         teamsRef = rootRef.child('teams'),
         usersRef = rootRef.child('users'),
         channelsRef = rootRef.child('channels');
